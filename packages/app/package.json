@@ -4,5 +4,15 @@
   "description": "App for a user to manage a fake stock portfolio and cash balance",
   "repository": "https://github.com/hedgepigdaniel/trading-app",
   "author": "Daniel Playfair Cal <daniel.playfair.cal@gmail.com>",
-  "private": true
+  "private": true,
+  "scripts": {
+    "babel": "babel",
+    "webpack": "webpack"
+  },
+  "dependencies": {
+    "react": "^16.7.0",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
+    "redux-first-router": "^2.1.1"
+  }
 }
