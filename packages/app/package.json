@@ -1,11 +1,8 @@
 {
-  "name": "qwilr-danielpc",
+  "name": "@qwilr-danielpc/trading-app",
   "version": "0.0.1",
   "description": "App for a user to manage a fake stock portfolio and cash balance",
   "repository": "https://github.com/hedgepigdaniel/trading-app",
   "author": "Daniel Playfair Cal <daniel.playfair.cal@gmail.com>",
-  "private": true,
-  "devDependencies": {
-    "lerna": "^3.8.5"
-  }
+  "private": true
 }
