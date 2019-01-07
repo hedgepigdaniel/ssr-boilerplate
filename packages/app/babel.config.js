@@ -1,8 +1,8 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = (api) => {
   api.cache(true);
   return {
-    extends: path.resolve(__dirname, '../../babel.config.js'),
+    extends: path.resolve(__dirname, "../../babel.config.js"),
   };
 };

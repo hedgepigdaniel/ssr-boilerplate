@@ -1,0 +1,11 @@
+node_modules/
+
+*.log
+*.lock
+*.ico
+dist/*
+**/buildClient/**
+**/buildServer/**
+
+.gitignore
+.prettierignore
