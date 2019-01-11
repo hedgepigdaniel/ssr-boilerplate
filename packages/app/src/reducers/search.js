@@ -6,7 +6,7 @@ export const search = (state = {}, action) => {
       const { matches, query } = action;
       return {
         ...state,
-        [query]: matches.map((match) => match["1. symbol"]),
+        [query]: matches.map((match) => match.symbol),
       };
     }
     default: {

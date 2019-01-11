@@ -7,7 +7,7 @@ export const stocks = (state = {}, action) => {
       return matches.reduce(
         (existingState, match) => {
           const newState = existingState;
-          newState[match["1. symbol"]] = match;
+          newState[match.symbol] = match;
           return newState;
         },
         { ...state },

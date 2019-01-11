@@ -4,7 +4,7 @@ import { searchStocks } from "./alphaVantage";
 export const findStocks = ({ action, dispatch }) => {
   const query = action.query.search;
   return dispatch(searchStocks(query))
-    .then(({ data: { bestMatches: matches } }) => {
+    .then((matches) => {
       dispatch({
         type: SEARCH_STOCKS_SUCCESS,
         query,
