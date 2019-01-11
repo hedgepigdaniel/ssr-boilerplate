@@ -3,6 +3,7 @@
 // Copied from https://github.com/respond-framework/rudy/blob/22d0a9d8d28e1e74aaf04bb48b5e0f65a609cf81/packages/boilerplate/src/configureStore.browser.js
 
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
+import ReduxThunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension/logOnlyInProduction";
 import {
   push,
@@ -21,14 +22,14 @@ import {
 } from "@respond-framework/rudy";
 
 import { routes } from "./routes";
-import * as reducers from "./reducers";
+import { reducers } from "./reducers";
 
 export const configureStore = (preloadedState, initialEntries) => {
-  const options = { initialEntries, basenames: ["/foo", "/bar"] };
+  const options = { initialEntries };
   const { reducer, middleware, firstRoute } = createRouter(routes, options);
 
   const rootReducer = combineReducers({ ...reducers, location: reducer });
-  const middlewares = applyMiddleware(middleware);
+  const middlewares = applyMiddleware(ReduxThunk, middleware);
   const enhancers = composeEnhancers(middlewares);
   const store = createStore(rootReducer, preloadedState, enhancers);
 

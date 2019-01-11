@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@respond-framework/rudy": "^0.1.1-test.0",
+    "axios": "^0.18.0",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "react": "^16.7.0",
@@ -22,6 +23,7 @@
     "react-universal-component": "^3.0.3",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.7",
+    "redux-thunk": "^2.3.0",
     "serve-favicon": "^2.5.0",
     "webpack-dev-middleware": "^3.5.0",
     "webpack-flush-chunks": "^2.0.3",

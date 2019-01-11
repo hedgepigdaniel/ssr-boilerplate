@@ -4,7 +4,7 @@ import { doesRedirect } from "@respond-framework/rudy";
 import { configureStore as configureStoreBrowser } from "./configureStore.browser";
 
 export const configureStore = async (req, res) => {
-  const { store, firstRoute } = configureStoreBrowser(undefined, req.path);
+  const { store, firstRoute } = configureStoreBrowser(undefined, req.url);
   const result = await store.dispatch(firstRoute());
   if (doesRedirect(result, res)) return false;
 
