@@ -1,8 +1,6 @@
-import { urlToAction } from "@respond-framework/rudy";
-
 import { selectDraftApiKey } from "../selectors/loginPage";
 import { COMMIT_API_KEY } from "../actions";
-import { selectPostLoginRedirectUrl } from "../selectors/location";
+import { loginRedirect } from "./login";
 
 export const SESSION_COOKIE_NAME = "qwilr/alphavantage";
 
@@ -17,8 +15,7 @@ export const confirmApiKey = (req) => {
     type: COMMIT_API_KEY,
     apiKey,
   });
-  const redirectUrl = selectPostLoginRedirectUrl(state);
-  dispatch(urlToAction(req, redirectUrl));
+  dispatch(loginRedirect(req));
 };
 
 export const logOut = ({ cookies }) => {

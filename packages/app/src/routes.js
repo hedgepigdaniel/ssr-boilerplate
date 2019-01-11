@@ -7,7 +7,7 @@ import {
 } from "./actions";
 import { findStocks } from "./thunks/findStocks";
 import { confirmApiKey, logOut } from "./thunks/apiKey";
-import { requiresLogin } from "./thunks/login";
+import { requiresLogin, loginRedirect } from "./thunks/login";
 import { readCookies } from "./thunks/cookies";
 
 export const routes = {
@@ -16,6 +16,7 @@ export const routes = {
   },
   [LOG_IN]: {
     path: "/login",
+    thunk: loginRedirect,
   },
   [CONFIRM_API_KEY]: {
     thunk: confirmApiKey,

@@ -6,6 +6,7 @@ import "source-map-support/register";
 import "@babel/polyfill";
 import path from "path";
 import express from "express";
+import nocache from "nocache";
 import favicon from "serve-favicon";
 import webpack from "webpack";
 import webpackDevMiddleware from "webpack-dev-middleware";
@@ -21,6 +22,7 @@ const { publicPath, outputPath } = clientConfig.output;
 const app = express();
 
 app.use(favicon(path.resolve(__dirname, "../public", "favicon.ico")));
+app.use(nocache());
 
 // UNIVERSAL HMR + STATS HANDLING GOODNESS:
 

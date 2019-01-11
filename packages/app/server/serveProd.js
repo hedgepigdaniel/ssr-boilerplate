@@ -4,6 +4,8 @@ import "source-map-support/register";
 import "@babel/polyfill";
 import { resolve } from "path";
 import express from "express";
+import nocache from "nocache";
+
 import favicon from "serve-favicon";
 import clientStats from "../buildClient/stats.json"; // eslint-disable-line import/no-unresolved
 import serverRender from "../buildServer/h"; // eslint-disable-line import/no-unresolved
@@ -19,6 +21,7 @@ const { path: outputPath, publicPath } = makeConfig({ server: false }).output;
 const app = express();
 
 app.use(favicon(res("../public", "favicon.ico")));
+app.use(nocache());
 
 // UNIVERSAL HMR + STATS HANDLING GOODNESS:
 
