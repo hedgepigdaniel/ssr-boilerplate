@@ -1,6 +1,7 @@
 export const LOG_IN = "LOG_IN";
 export const SET_API_KEY = "SET_API_KEY";
 export const CONFIRM_API_KEY = "CONFIRM_API_KEY";
+export const COMMIT_API_KEY = "COMMIT_API_KEY";
 
 export const LOG_OUT = "LOG_OUT";
 

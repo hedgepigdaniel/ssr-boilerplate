@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { flushChunkNames } from "react-universal-component/server";
 import flushChunks from "webpack-flush-chunks";
 import { configureStore } from "./configureStore";
-import { App } from "./components/App";
+import { HotApp } from "./components/App/hot";
 
 // eslint-disable-next-line import/no-default-export
 export default ({ clientStats }) => async (req, res, next) => {
@@ -24,7 +24,7 @@ const renderToString = async (clientStats, req, res) => {
   const store = await configureStore(req, res);
   if (!store) return ""; // no store means redirect was already served
 
-  const app = createApp(App, store);
+  const app = createApp(HotApp, store);
   const appString = ReactDOM.renderToString(app);
   const state = store.getState();
   const stateJson = JSON.stringify(state);
