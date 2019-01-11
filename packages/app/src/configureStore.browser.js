@@ -4,6 +4,7 @@
 
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import ReduxThunk from "redux-thunk";
+import Cookies from "universal-cookie";
 import { composeWithDevTools } from "redux-devtools-extension/logOnlyInProduction";
 import {
   push,
@@ -24,8 +25,13 @@ import {
 import { routes } from "./routes";
 import { reducers } from "./reducers";
 
-export const configureStore = (preloadedState, initialEntries) => {
-  const options = { initialEntries };
+export const configureStore = (preloadedState, initialEntries, cookie) => {
+  const options = {
+    initialEntries,
+    extra: {
+      cookies: new Cookies(cookie),
+    },
+  };
   const { reducer, middleware, firstRoute } = createRouter(routes, options);
 
   const rootReducer = combineReducers({ ...reducers, location: reducer });
