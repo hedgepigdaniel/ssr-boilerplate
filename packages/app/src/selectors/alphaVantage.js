@@ -1,1 +1,1 @@
-export const selectAlphaVantageApiKey = () => "HNCOIMF4F47TB3A6";
+export const selectAlphaVantageApiKey = (state) => state.apiKey;

@@ -1,3 +1,6 @@
+export const READ_COOKIES = "READ_COOKIES";
+export const READ_COOKIES_COMPLETE = "READ_COOKIES_COMPLETE";
+
 export const LOG_IN = "LOG_IN";
 export const SET_API_KEY = "SET_API_KEY";
 export const CONFIRM_API_KEY = "CONFIRM_API_KEY";

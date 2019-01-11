@@ -1,22 +1,28 @@
+import { urlToAction } from "@respond-framework/rudy";
+
 import { selectDraftApiKey } from "../selectors/loginPage";
 import { COMMIT_API_KEY } from "../actions";
+import { selectPostLoginRedirectUrl } from "../selectors/location";
 
-const COOKIE_NAME = "qwilr/alphavantage";
+export const SESSION_COOKIE_NAME = "qwilr/alphavantage";
 
-export const confirmApiKey = ({ dispatch, getState, cookies }) => {
+export const confirmApiKey = (req) => {
+  const { dispatch, getState, cookies } = req;
   const state = getState();
   const apiKey = selectDraftApiKey(state);
-  cookies.set(COOKIE_NAME, apiKey, {
+  cookies.set(SESSION_COOKIE_NAME, apiKey, {
     path: "/",
   });
   dispatch({
     type: COMMIT_API_KEY,
     apiKey,
   });
+  const redirectUrl = selectPostLoginRedirectUrl(state);
+  dispatch(urlToAction(req, redirectUrl));
 };
 
 export const logOut = ({ cookies }) => {
-  cookies.delete(COOKIE_NAME, {
+  cookies.remove(SESSION_COOKIE_NAME, {
     path: "/",
   });
 };

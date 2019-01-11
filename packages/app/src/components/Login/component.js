@@ -1,25 +1,42 @@
 import React from "react";
-import { SET_API_KEY, CONFIRM_API_KEY } from "../../actions";
+import { SET_API_KEY, CONFIRM_API_KEY, LOG_OUT } from "../../actions";
 
-export const Login = ({ draftApiKey, dispatch }) => (
+export const Login = ({ currentApiKey, draftApiKey, dispatch }) => (
   <div>
-    <input
-      type="text"
-      value={draftApiKey}
-      onChange={({ currentTarget: { value: apiKey } }) =>
-        dispatch({
-          type: SET_API_KEY,
-          apiKey,
-        })
-      }
-    />
-    <button
-      type="button"
-      onClick={() =>
-        dispatch({
-          type: CONFIRM_API_KEY,
-        })
-      }
-    />
+    {currentApiKey ? (
+      <button
+        type="button"
+        onClick={() =>
+          dispatch({
+            type: LOG_OUT,
+          })
+        }
+      >
+        Log out
+      </button>
+    ) : (
+      <>
+        <input
+          type="text"
+          value={draftApiKey}
+          onChange={({ currentTarget: { value: apiKey } }) =>
+            dispatch({
+              type: SET_API_KEY,
+              apiKey,
+            })
+          }
+        />
+        <button
+          type="button"
+          onClick={() =>
+            dispatch({
+              type: CONFIRM_API_KEY,
+            })
+          }
+        >
+          Log in
+        </button>
+      </>
+    )}
   </div>
 );
