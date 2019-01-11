@@ -4,6 +4,7 @@ import {
   CONFIRM_API_KEY,
   LOG_OUT,
   READ_COOKIES,
+  DASHBOARD,
 } from "./actions";
 import { findStocks } from "./thunks/findStocks";
 import { confirmApiKey, logOut } from "./thunks/apiKey";
@@ -24,8 +25,11 @@ export const routes = {
   [LOG_OUT]: {
     thunk: logOut,
   },
-  [FIND_STOCKS]: {
+  [DASHBOARD]: {
     path: "/",
+  },
+  [FIND_STOCKS]: {
+    path: "/find",
     thunk: requiresLogin(findStocks),
   },
 };
