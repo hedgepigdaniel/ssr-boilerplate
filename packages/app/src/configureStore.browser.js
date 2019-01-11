@@ -20,15 +20,12 @@ import {
   createRouter,
 } from "@respond-framework/rudy";
 
-import routes from "./routes";
+import { routes } from "./routes";
 import * as reducers from "./reducers";
 
-export default (preloadedState, initialEntries) => {
+export const configureStore = (preloadedState, initialEntries) => {
   const options = { initialEntries, basenames: ["/foo", "/bar"] };
-  const { reducer, middleware, firstRoute, history, ctx } = createRouter(
-    routes,
-    options,
-  );
+  const { reducer, middleware, firstRoute } = createRouter(routes, options);
 
   const rootReducer = combineReducers({ ...reducers, location: reducer });
   const middlewares = applyMiddleware(middleware);
@@ -43,14 +40,6 @@ export default (preloadedState, initialEntries) => {
       });
       store.replaceReducer(newRootReducer);
     });
-  }
-
-  if (typeof window !== "undefined") {
-    window.routes = routes;
-    window.store = store;
-    window.hist = history;
-    window.actions = actionCreators;
-    window.ctx = ctx;
   }
 
   return { store, firstRoute };

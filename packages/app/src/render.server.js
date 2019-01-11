@@ -5,10 +5,10 @@ import ReactDOM from "react-dom/server";
 import { Provider } from "react-redux";
 import { flushChunkNames } from "react-universal-component/server";
 import flushChunks from "webpack-flush-chunks";
-import configureStore from "./configureStore";
-import App from "./components/App";
+import { configureStore } from "./configureStore";
+import { App } from "./components/App";
 
-export default ({ clientStats }) => async (req, res, next) => {
+export const render = ({ clientStats }) => async (req, res, next) => {
   console.log("REQUESTED PATH:", req.path); // eslint-disable-line no-console
   try {
     const html = await renderToString(clientStats, req, res);
