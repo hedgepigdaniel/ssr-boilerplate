@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 
 import { selectPage } from "../../selectors/page";
-import { App } from "./component";
+import { Content } from "./component";
 
-export const ConnectedApp = connect((state) => ({
+export const ConnectedContent = connect((state) => ({
   page: selectPage(state),
-}))(App);
+}))(Content);

@@ -1,4 +1,4 @@
 import { hot } from "react-hot-loader/root";
-import { ConnectedApp } from "./connector";
+import { App } from "./component";
 
-export const HotApp = hot(ConnectedApp);
+export const HotApp = hot(App);
