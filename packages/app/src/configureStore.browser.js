@@ -20,10 +20,18 @@ import {
   setHash,
   setBasename,
   createRouter,
+  serverRedirect,
+  anonymousThunk,
+  pathlessRoute,
+  transformAction,
+  call,
+  enter,
+  changePageTitle,
 } from "@respond-framework/rudy";
 
 import { routes } from "./routes";
 import { reducers } from "./reducers";
+import { selectTitle } from "./selectors/title";
 
 export const configureStore = (preloadedState, initialEntries, cookie) => {
   const options = {
@@ -31,11 +39,32 @@ export const configureStore = (preloadedState, initialEntries, cookie) => {
     extra: {
       cookies: new Cookies(cookie),
     },
+    title: selectTitle,
   };
-  const { reducer, middleware, firstRoute } = createRouter(routes, options);
+  const rudyMiddlewares = [
+    serverRedirect, // short-circuiting middleware
+    anonymousThunk,
+    pathlessRoute("thunk"),
+    transformAction, // pipeline starts here
+    call("beforeLeave", { prev: true }),
+    call("beforeEnter"),
+    enter,
+    changePageTitle({
+      title: selectTitle,
+    }),
+    call("onLeave", { prev: true }),
+    call("onEnter"),
+    call("thunk", { cache: true }),
+    call("onComplete"),
+  ];
+  const {
+    reducer: rudyReducer,
+    middleware: rudyReduxMiddleware,
+    firstRoute,
+  } = createRouter(routes, options, rudyMiddlewares);
 
-  const rootReducer = combineReducers({ ...reducers, location: reducer });
-  const middlewares = applyMiddleware(ReduxThunk, middleware);
+  const rootReducer = combineReducers({ ...reducers, location: rudyReducer });
+  const middlewares = applyMiddleware(ReduxThunk, rudyReduxMiddleware);
   const enhancers = composeEnhancers(middlewares);
   const store = createStore(rootReducer, preloadedState, enhancers);
 
@@ -43,7 +72,7 @@ export const configureStore = (preloadedState, initialEntries, cookie) => {
     module.hot.accept("./reducers", () => {
       const newRootReducer = combineReducers({
         ...reducers,
-        location: reducer,
+        location: rudyReducer,
       });
       store.replaceReducer(newRootReducer);
     });

@@ -7,6 +7,7 @@ import { flushChunkNames } from "react-universal-component/server";
 import flushChunks from "webpack-flush-chunks";
 import { configureStore } from "./configureStore";
 import { HotApp } from "./components/App/hot";
+import { selectTitle } from "./selectors/title";
 
 // eslint-disable-next-line import/no-default-export
 export default ({ clientStats }) => async (req, res, next) => {
@@ -31,12 +32,11 @@ const renderToString = async (clientStats, req, res) => {
   const { js, styles, cssHash } = flushChunks(clientStats, { chunkNames });
 
   console.log("CHUNK NAMES RENDERED", chunkNames); // eslint-disable-line no-console
-
   return `<!doctype html>
       <html>
         <head>
           <meta charset="utf-8">
-          <title>${state.title}</title>
+          <title>${selectTitle(state)}</title>
           ${styles}
         </head>
         <body>
