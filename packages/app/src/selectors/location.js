@@ -1,7 +1,7 @@
 import { createSelector } from "reselect";
 import { LOG_IN } from "../actions";
 
-const selectLocation = (state) => state.location;
+export const selectLocation = (state) => state.location;
 
 export const selectPostLoginRedirectUrl = createSelector(
   [selectLocation],
