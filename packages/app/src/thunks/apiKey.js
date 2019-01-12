@@ -1,5 +1,6 @@
+import { redirect } from "@respond-framework/rudy";
 import { selectDraftApiKey } from "../selectors/loginPage";
-import { COMMIT_API_KEY } from "../actions";
+import { COMMIT_API_KEY, LOG_IN } from "../actions";
 import { loginRedirect } from "./login";
 
 export const SESSION_COOKIE_NAME = "qwilr/alphavantage";
@@ -18,8 +19,13 @@ export const confirmApiKey = (req) => {
   dispatch(loginRedirect(req));
 };
 
-export const logOut = ({ cookies }) => {
+export const logOut = ({ cookies, dispatch }) => {
   cookies.remove(SESSION_COOKIE_NAME, {
     path: "/",
   });
+  dispatch(
+    redirect({
+      type: LOG_IN,
+    }),
+  );
 };
