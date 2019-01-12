@@ -15,8 +15,9 @@ export const Login = ({ currentApiKey, draftApiKey, dispatch }) => (
         Log out
       </button>
     ) : (
-      <>
+      [
         <input
+          key="type"
           type="text"
           value={draftApiKey}
           onChange={({ currentTarget: { value: apiKey } }) =>
@@ -25,8 +26,9 @@ export const Login = ({ currentApiKey, draftApiKey, dispatch }) => (
               apiKey,
             })
           }
-        />
+        />,
         <button
+          key="button"
           type="button"
           onClick={() =>
             dispatch({
@@ -35,8 +37,8 @@ export const Login = ({ currentApiKey, draftApiKey, dispatch }) => (
           }
         >
           Log in
-        </button>
-      </>
+        </button>,
+      ]
     )}
   </div>
 );

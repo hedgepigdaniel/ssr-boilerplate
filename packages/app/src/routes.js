@@ -27,6 +27,7 @@ export const routes = {
   },
   [DASHBOARD]: {
     path: "/",
+    thunk: requiresLogin(),
   },
   [FIND_STOCKS]: {
     path: "/find",

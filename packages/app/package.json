@@ -12,6 +12,7 @@
     "start": "cross-env NODE_ENV=development babel-node server/serveDev.js"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.6",
     "@respond-framework/rudy": "^0.1.1-test.0",
     "axios": "^0.18.0",
     "cross-env": "^5.2.0",

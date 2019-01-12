@@ -1,9 +1,10 @@
-import React from "react";
+/** @jsx jsx */
+import { jsx, css } from "@emotion/core";
 import { LOG_IN, DASHBOARD } from "../../actions";
 import { ConnectedLogin } from "../Login/connector";
 import { ConnectedDashboard } from "../Dashboard/connector";
 
-export const Content = ({ page }) => {
+const ContentSwitch = ({ page }) => {
   switch (page) {
     case LOG_IN: {
       return <ConnectedLogin />;
@@ -16,3 +17,13 @@ export const Content = ({ page }) => {
     }
   }
 };
+
+export const Content = (props) => (
+  <div
+    css={css`
+      grid-area: content;
+    `}
+  >
+    <ContentSwitch {...props} />
+  </div>
+);

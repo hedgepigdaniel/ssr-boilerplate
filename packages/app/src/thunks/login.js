@@ -9,7 +9,6 @@ export const loginRedirect = (req) => {
   const state = getState();
   const apiKey = selectAlphaVantageApiKey(state);
   const redirectUrl = selectPostLoginRedirectUrl(state);
-  console.log("REDIRECT?", apiKey, redirectUrl);
   if (apiKey && redirectUrl) {
     dispatch(redirect(urlToAction(req, redirectUrl)));
   }
