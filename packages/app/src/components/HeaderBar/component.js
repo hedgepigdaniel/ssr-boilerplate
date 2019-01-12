@@ -29,7 +29,7 @@ export const HeaderBar = ({
     <header
       css={css`
         ${contentStyle};
-        height: 3rem;
+        height: 6rem;
         line-height: 3rem;
         font-size: 1rem;
 
@@ -38,6 +38,7 @@ export const HeaderBar = ({
           grid-template-areas: "title  .  user";
           grid-template-columns: auto 1fr auto;
           grid-template-rows: auto;
+          height: 3rem;
         }
         grid-template-areas:
           "title"
