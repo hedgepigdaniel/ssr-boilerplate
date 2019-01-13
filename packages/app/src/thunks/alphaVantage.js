@@ -1,5 +1,9 @@
 import axios from 'axios';
 import { selectAlphaVantageApiKey } from '../selectors/alphaVantage';
+import {
+  FETCH_STOCK_PRICE_FAILURE,
+  FETCH_STOCK_PRICE_SUCCESS,
+} from '../actions';
 
 const ALPHA_VANTAGE_API_ENDPOINT = 'https://www.alphavantage.co/query';
 
@@ -27,4 +31,29 @@ export const searchStocks = (search) => async (dispatch, getState) => {
     currency: match['8. currency'],
     // matchScore: match["9. matchScore"],
   }));
+};
+
+export const retrievePrice = (symbol) => async (dispatch, getState) => {
+  try {
+    const { data } = await axios.get(ALPHA_VANTAGE_API_ENDPOINT, {
+      params: {
+        function: 'TIME_SERIES_INTRADAY',
+        symbol,
+        interval: '1min',
+        apikey: selectAlphaVantageApiKey(getState()),
+      },
+    });
+    dispatch({
+      type: FETCH_STOCK_PRICE_SUCCESS,
+      symbol,
+      data,
+    });
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error);
+    dispatch({
+      type: FETCH_STOCK_PRICE_FAILURE,
+      error,
+    });
+  }
 };

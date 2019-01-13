@@ -1,9 +1,10 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
-import { LOG_IN, DASHBOARD, FIND_STOCKS } from '../../actions';
+import { LOG_IN, DASHBOARD, FIND_STOCKS, TRADE_STOCK } from '../../actions';
 import { ConnectedLogin } from '../Login/connector';
 import { ConnectedDashboard } from '../Dashboard/connector';
 import { ConnectedFindStocks } from '../FindStocks/connector';
+import { ConnectedTradeStock } from '../TradeStock/connector';
 
 const ContentSwitch = ({ page }) => {
   switch (page) {
@@ -15,6 +16,9 @@ const ContentSwitch = ({ page }) => {
     }
     case FIND_STOCKS: {
       return <ConnectedFindStocks />;
+    }
+    case TRADE_STOCK: {
+      return <ConnectedTradeStock />;
     }
     default: {
       return <div>Error: unknown page</div>;

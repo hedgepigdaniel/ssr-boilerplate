@@ -11,6 +11,7 @@ import { findStocks } from './thunks/findStocks';
 import { confirmApiKey, logOut } from './thunks/apiKey';
 import { requiresLogin, loginRedirect } from './thunks/login';
 import { readCookies } from './thunks/cookies';
+import { retrievePrice } from './thunks/alphaVantage';
 
 export const routes = {
   [READ_COOKIES]: {
@@ -32,10 +33,17 @@ export const routes = {
   },
   [FIND_STOCKS]: {
     path: '/find',
-    thunk: requiresLogin(findStocks),
+    thunk: requiresLogin(({ action, dispatch }) =>
+      dispatch(findStocks(action.query.search)),
+    ),
   },
   [TRADE_STOCK]: {
     path: '/trade/:symbol/:action',
-    thunk: requiresLogin(),
+    thunk: requiresLogin(({ action, dispatch }) =>
+      Promise.all([
+        dispatch(retrievePrice(action.params.symbol)),
+        dispatch(findStocks(action.params.symbol)),
+      ]),
+    ),
   },
 };

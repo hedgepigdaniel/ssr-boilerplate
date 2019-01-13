@@ -1,9 +1,8 @@
 import { SEARCH_STOCKS_SUCCESS, SEARCH_STOCKS_FAILURE } from '../actions';
 import { searchStocks } from './alphaVantage';
 
-export const findStocks = ({ action, dispatch }) => {
-  const query = action.query.search;
-  return dispatch(searchStocks(query))
+export const findStocks = (query) => (dispatch) =>
+  dispatch(searchStocks(query))
     .then((matches) => {
       dispatch({
         type: SEARCH_STOCKS_SUCCESS,
@@ -17,4 +16,3 @@ export const findStocks = ({ action, dispatch }) => {
         error,
       }),
     );
-};
