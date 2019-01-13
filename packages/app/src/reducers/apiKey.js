@@ -1,4 +1,4 @@
-import { COMMIT_API_KEY, LOG_OUT, READ_COOKIES_COMPLETE } from "../actions";
+import { COMMIT_API_KEY, LOG_OUT, READ_COOKIES_COMPLETE } from '../actions';
 
 export const apiKey = (state = null, action) => {
   switch (action.type) {

@@ -1,35 +1,35 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
   extends: [
-    "eslint-config-airbnb",
-    "plugin:prettier/recommended",
-    "prettier/react",
+    'eslint-config-airbnb',
+    'plugin:prettier/recommended',
+    'prettier/react',
   ],
-  parser: "babel-eslint",
+  parser: 'babel-eslint',
   settings: {
-    "import/resolver": {
+    'import/resolver': {
       lerna: {
-        packages: path.resolve(__dirname, "./packages"),
+        packages: path.resolve(__dirname, './packages'),
       },
     },
   },
   rules: {
-    "prettier/prettier": "warn",
-    "no-use-before-define": [
-      "error",
+    'prettier/prettier': 'warn',
+    'no-use-before-define': [
+      'error',
       { functions: false, classes: false, variables: false },
     ],
-    "no-underscore-dangle": 0,
-    "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
-    "no-nested-ternary": 0,
-    "import/no-extraneous-dependencies": [
+    'no-underscore-dangle': 0,
+    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
+    'no-nested-ternary': 0,
+    'import/no-extraneous-dependencies': [
       2,
       {
-        devDependencies: ["config/**"],
+        devDependencies: ['config/**'],
       },
     ],
-    "import/no-default-export": 2,
-    "import/prefer-default-export": 0,
+    'import/no-default-export': 2,
+    'import/prefer-default-export': 0,
   },
 };

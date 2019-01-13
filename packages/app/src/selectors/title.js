@@ -1,6 +1,6 @@
-import { createSelector } from "reselect";
-import { selectPage } from "./page";
-import { DASHBOARD } from "../actions";
+import { createSelector } from 'reselect';
+import { selectPage } from './page';
+import { DASHBOARD } from '../actions';
 
 export const selectTitle = createSelector(
   [selectPage],

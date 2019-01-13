@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { jsx, css } from "@emotion/core";
-import { Fragment } from "react";
-import { LOG_OUT } from "../../actions";
-import { MIN_PC_WIDTH_REM } from "../../responsive";
+import { jsx, css } from '@emotion/core';
+import { Fragment } from 'react';
+import { LOG_OUT } from '../../actions';
+import { MIN_PC_WIDTH_REM } from '../../responsive';
 
 export const HeaderBarBackground = () => (
   <div
@@ -35,14 +35,14 @@ export const HeaderBar = ({
 
         display: grid;
         @media (min-width: ${MIN_PC_WIDTH_REM}rem) {
-          grid-template-areas: "title  .  user";
+          grid-template-areas: 'title  .  user';
           grid-template-columns: auto 1fr auto;
           grid-template-rows: auto;
           height: 3rem;
         }
         grid-template-areas:
-          "title"
-          " user";
+          'title'
+          ' user';
         grid-template-rows: auto auto;
       `}
     >

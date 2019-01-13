@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { jsx } from "@emotion/core";
-import { TRADE_STOCK } from "../../../actions";
+import { jsx } from '@emotion/core';
+import { TRADE_STOCK } from '../../../actions';
 
 export const StockSearchResult = ({ stock, dispatch }) => (
   <li>
@@ -12,7 +12,7 @@ export const StockSearchResult = ({ stock, dispatch }) => (
           type: TRADE_STOCK,
           params: {
             symbol: stock.symbol,
-            action: "buy",
+            action: 'buy',
           },
         })
       }

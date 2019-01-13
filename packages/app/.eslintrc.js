@@ -1,19 +1,19 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  extends: [path.resolve(__dirname, "../../.eslintrc.js")],
+  extends: [path.resolve(__dirname, '../../.eslintrc.js')],
   env: {
-    "shared-node-browser": true,
+    'shared-node-browser': true,
   },
   settings: {
-    "import/resolver": {
+    'import/resolver': {
       node: {
-        extensions: [".browser.js", ".server.js", ".js", ".css"],
+        extensions: ['.browser.js', '.server.js', '.js', '.css'],
       },
     },
   },
   rules: {
-    "react/jsx-filename-extension": 0,
-    "react/prop-types": ["error", { skipUndeclared: true }],
+    'react/jsx-filename-extension': 0,
+    'react/prop-types': ['error', { skipUndeclared: true }],
   },
 };

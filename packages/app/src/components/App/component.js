@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { jsx, css } from "@emotion/core";
-import { ConnectedHeaderBar } from "../HeaderBar/connector";
+import { jsx, css } from '@emotion/core';
+import { ConnectedHeaderBar } from '../HeaderBar/connector';
 import {
   MIN_PC_WIDTH_REM,
   MIN_LARGE_PC_WIDTH_REM,
@@ -9,8 +9,8 @@ import {
   SMALL_PC_MARGIN,
   MOBILE_MARGIN,
   TABLET_MARGIN,
-} from "../../responsive";
-import { ConnectedContent } from "../Content/connector";
+} from '../../responsive';
+import { ConnectedContent } from '../Content/connector';
 
 export const App = () => (
   <div
@@ -18,9 +18,9 @@ export const App = () => (
       display: grid;
       grid-template-columns: ${MOBILE_MARGIN}rem 1fr ${MOBILE_MARGIN}rem;
       grid-template-areas:
-        "  .    nav    .  "
-        "  .  content  .  "
-        "  .  footer   .  ";
+        '  .    nav    .  '
+        '  .  content  .  '
+        '  .  footer   .  ';
       grid-template-rows: auto auto 1fr;
 
       @media (min-width: ${TABLET_WIDTH_REM}rem) {

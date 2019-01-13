@@ -1,5 +1,5 @@
-import { SEARCH_STOCKS_SUCCESS, SEARCH_STOCKS_FAILURE } from "../actions";
-import { searchStocks } from "./alphaVantage";
+import { SEARCH_STOCKS_SUCCESS, SEARCH_STOCKS_FAILURE } from '../actions';
+import { searchStocks } from './alphaVantage';
 
 export const findStocks = ({ action, dispatch }) => {
   const query = action.query.search;

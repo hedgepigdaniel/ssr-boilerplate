@@ -1,4 +1,4 @@
-import { SEARCH_STOCKS_SUCCESS } from "../actions";
+import { SEARCH_STOCKS_SUCCESS } from '../actions';
 
 export const search = (state = {}, action) => {
   switch (action.type) {

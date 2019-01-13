@@ -1,5 +1,5 @@
-import { createSelector } from "reselect";
-import { LOG_IN } from "../actions";
+import { createSelector } from 'reselect';
+import { LOG_IN } from '../actions';
 
 export const selectLocation = (state) => state.location;
 

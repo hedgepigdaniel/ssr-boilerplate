@@ -1,8 +1,8 @@
-import { actionToUrl, urlToAction, redirect } from "@respond-framework/rudy";
-import { selectPostLoginRedirectUrl } from "../selectors/location";
+import { actionToUrl, urlToAction, redirect } from '@respond-framework/rudy';
+import { selectPostLoginRedirectUrl } from '../selectors/location';
 
-import { selectAlphaVantageApiKey } from "../selectors/alphaVantage";
-import { LOG_IN, DASHBOARD } from "../actions";
+import { selectAlphaVantageApiKey } from '../selectors/alphaVantage';
+import { LOG_IN, DASHBOARD } from '../actions';
 
 export const loginRedirect = (req) => {
   const { dispatch, getState } = req;

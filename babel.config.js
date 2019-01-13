@@ -3,17 +3,17 @@ module.exports = (api) => {
   return {
     presets: [
       [
-        "@babel/preset-env",
+        '@babel/preset-env',
         {
-          targets: { node: true, browsers: "last 2 versions" },
+          targets: { node: true, browsers: 'last 2 versions' },
         },
       ],
-      "@babel/preset-react",
+      '@babel/preset-react',
     ],
     plugins: [
-      "@babel/plugin-proposal-class-properties",
-      "@babel/plugin-proposal-object-rest-spread",
-      "babel-plugin-emotion",
+      '@babel/plugin-proposal-class-properties',
+      '@babel/plugin-proposal-object-rest-spread',
+      'babel-plugin-emotion',
     ],
   };
 };

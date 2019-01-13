@@ -1,15 +1,15 @@
-import { createSelector } from "reselect";
-import { selectLocation } from "./location";
-import { selectMatches } from "./matches";
-import { FIND_STOCKS } from "../actions";
+import { createSelector } from 'reselect';
+import { selectLocation } from './location';
+import { selectMatches } from './matches';
+import { FIND_STOCKS } from '../actions';
 
 export const selectStockSearchQuery = createSelector(
   [selectLocation],
   (location) => {
     if (location.type === FIND_STOCKS) {
-      return location.query.search || "";
+      return location.query.search || '';
     }
-    return "";
+    return '';
   },
 );
 
@@ -20,7 +20,7 @@ export const selectStockSearchQuery = createSelector(
 export const selectStockSearchResults = createSelector(
   [selectStockSearchQuery, selectMatches],
   (query, matches) => {
-    let subQuery = query || "";
+    let subQuery = query || '';
     let closestMatches = [];
     while (subQuery.length > 0) {
       if (matches[subQuery] !== undefined) {

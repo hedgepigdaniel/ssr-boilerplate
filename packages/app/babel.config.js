@@ -1,13 +1,13 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = (api) => {
-  const webpack = api.env("webpack");
+  const webpack = api.env('webpack');
   return {
-    extends: path.resolve(__dirname, "../../babel.config.js"),
+    extends: path.resolve(__dirname, '../../babel.config.js'),
     plugins: [
-      webpack && "react-hot-loader/babel",
-      webpack && "@babel/plugin-syntax-dynamic-import",
-      webpack && "babel-plugin-universal-import",
+      webpack && 'react-hot-loader/babel',
+      webpack && '@babel/plugin-syntax-dynamic-import',
+      webpack && 'babel-plugin-universal-import',
     ].filter(Boolean),
   };
 };

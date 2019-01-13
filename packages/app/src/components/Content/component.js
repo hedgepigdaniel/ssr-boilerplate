@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import { jsx, css } from "@emotion/core";
-import { LOG_IN, DASHBOARD, FIND_STOCKS } from "../../actions";
-import { ConnectedLogin } from "../Login/connector";
-import { ConnectedDashboard } from "../Dashboard/connector";
-import { ConnectedFindStocks } from "../FindStocks/connector";
+import { jsx, css } from '@emotion/core';
+import { LOG_IN, DASHBOARD, FIND_STOCKS } from '../../actions';
+import { ConnectedLogin } from '../Login/connector';
+import { ConnectedDashboard } from '../Dashboard/connector';
+import { ConnectedFindStocks } from '../FindStocks/connector';
 
 const ContentSwitch = ({ page }) => {
   switch (page) {

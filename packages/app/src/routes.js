@@ -6,18 +6,18 @@ import {
   READ_COOKIES,
   DASHBOARD,
   TRADE_STOCK,
-} from "./actions";
-import { findStocks } from "./thunks/findStocks";
-import { confirmApiKey, logOut } from "./thunks/apiKey";
-import { requiresLogin, loginRedirect } from "./thunks/login";
-import { readCookies } from "./thunks/cookies";
+} from './actions';
+import { findStocks } from './thunks/findStocks';
+import { confirmApiKey, logOut } from './thunks/apiKey';
+import { requiresLogin, loginRedirect } from './thunks/login';
+import { readCookies } from './thunks/cookies';
 
 export const routes = {
   [READ_COOKIES]: {
     thunk: readCookies,
   },
   [LOG_IN]: {
-    path: "/login",
+    path: '/login',
     thunk: loginRedirect,
   },
   [CONFIRM_API_KEY]: {
@@ -27,15 +27,15 @@ export const routes = {
     thunk: logOut,
   },
   [DASHBOARD]: {
-    path: "/",
+    path: '/',
     thunk: requiresLogin(),
   },
   [FIND_STOCKS]: {
-    path: "/find",
+    path: '/find',
     thunk: requiresLogin(findStocks),
   },
   [TRADE_STOCK]: {
-    path: "/trade/:symbol/:action",
+    path: '/trade/:symbol/:action',
     thunk: requiresLogin(),
   },
 };

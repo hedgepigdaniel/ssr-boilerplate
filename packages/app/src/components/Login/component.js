@@ -1,5 +1,5 @@
-import React from "react";
-import { SET_API_KEY, CONFIRM_API_KEY, LOG_OUT } from "../../actions";
+import React from 'react';
+import { SET_API_KEY, CONFIRM_API_KEY, LOG_OUT } from '../../actions';
 
 export const Login = ({ currentApiKey, draftApiKey, dispatch }) => (
   <div>

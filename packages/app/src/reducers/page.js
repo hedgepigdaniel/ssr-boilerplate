@@ -1,4 +1,4 @@
-import { LOG_IN, FIND_STOCKS, DASHBOARD, TRADE_STOCK } from "../actions";
+import { LOG_IN, FIND_STOCKS, DASHBOARD, TRADE_STOCK } from '../actions';
 
 export const page = (state = null, action) => {
   switch (action.type) {

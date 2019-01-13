@@ -1,12 +1,12 @@
 /** @jsx jsx */
-import { jsx } from "@emotion/core";
-import { Fragment } from "react";
+import { jsx } from '@emotion/core';
+import { Fragment } from 'react';
 import {
   DEPOSIT_CASH,
   WITHDRAW_CASH,
   FIND_STOCKS,
   TRADE_STOCK,
-} from "../../actions";
+} from '../../actions';
 
 export const Dashboard = ({ dispatch, holdings = [] }) => (
   <Fragment>
@@ -58,7 +58,7 @@ export const Dashboard = ({ dispatch, holdings = [] }) => (
                   type: TRADE_STOCK,
                   params: {
                     symbol: holding.symbol,
-                    action: "buy",
+                    action: 'buy',
                   },
                 })
               }
@@ -72,7 +72,7 @@ export const Dashboard = ({ dispatch, holdings = [] }) => (
                   type: TRADE_STOCK,
                   params: {
                     symbol: holding.symbol,
-                    action: "sell",
+                    action: 'sell',
                   },
                 })
               }
