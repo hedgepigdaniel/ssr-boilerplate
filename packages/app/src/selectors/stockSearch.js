@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 import { selectLocation } from './location';
 import { selectMatches } from './matches';
 import { FIND_STOCKS } from '../actions';
+import { selectStocks } from './stocks';
 
 export const selectStockSearchQuery = createSelector(
   [selectLocation],
@@ -18,8 +19,8 @@ export const selectStockSearchQuery = createSelector(
  * available, the matches for the longest possible prefix of it
  */
 export const selectStockSearchResults = createSelector(
-  [selectStockSearchQuery, selectMatches],
-  (query, matches) => {
+  [selectStockSearchQuery, selectMatches, selectStocks],
+  (query, matches, stocks) => {
     let subQuery = query || '';
     let closestMatches = [];
     while (subQuery.length > 0) {
@@ -29,6 +30,6 @@ export const selectStockSearchResults = createSelector(
       }
       subQuery = subQuery.slice(0, subQuery.length - 1);
     }
-    return closestMatches;
+    return closestMatches.filter((symbol) => stocks[symbol].currency === 'USD');
   },
 );
