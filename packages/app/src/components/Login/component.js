@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { SET_API_KEY, CONFIRM_API_KEY, LOG_OUT } from '../../actions';
 
 export const Login = ({ currentApiKey, draftApiKey, dispatch }) => (
-  <div>
+  <Fragment>
+    <h1>Log {currentApiKey ? 'out' : 'in'}</h1>
     {currentApiKey ? (
       <button
         type="button"
@@ -15,7 +16,10 @@ export const Login = ({ currentApiKey, draftApiKey, dispatch }) => (
         Log out
       </button>
     ) : (
-      [
+      <Fragment>
+        Enter an AlphaVantage{' '}
+        <a href="https://www.alphavantage.co/support/#api-key">API key</a>{' '}
+        (hint: any string will work)
         <input
           key="type"
           type="text"
@@ -26,7 +30,7 @@ export const Login = ({ currentApiKey, draftApiKey, dispatch }) => (
               apiKey,
             })
           }
-        />,
+        />
         <button
           key="button"
           type="button"
@@ -37,8 +41,8 @@ export const Login = ({ currentApiKey, draftApiKey, dispatch }) => (
           }
         >
           Log in
-        </button>,
-      ]
+        </button>
+      </Fragment>
     )}
-  </div>
+  </Fragment>
 );
