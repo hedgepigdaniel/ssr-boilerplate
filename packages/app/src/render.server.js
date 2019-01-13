@@ -39,7 +39,7 @@ const renderToString = async (clientStats, req, res) => {
           <title>${selectTitle(state)}</title>
           ${styles}
         </head>
-        <body>
+        <body style="margin: 0;">
           <script>window.REDUX_STATE = ${stateJson}</script>
           <div id="root">${appString}</div>
           ${cssHash}
