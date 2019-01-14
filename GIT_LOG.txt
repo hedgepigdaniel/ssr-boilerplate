@@ -1,0 +1,155 @@
+commit 45bdd2e21d66ab4a620f5e1ede832cf076a9925c
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Mon Jan 14 12:36:56 2019 +1100
+
+    Add README and development report
+
+commit f72f65ffcdf85251ea5fb3a484326a1e2330c1bf
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sun Jan 13 15:03:07 2019 +1100
+
+    Remove the annoying default margin on <body />
+
+commit 345591e14747aaa2df90968d294352fb919c0f4b
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sun Jan 13 15:02:47 2019 +1100
+
+    Improve copy on the login screen, add link to AlphaVantage API key generateion
+
+commit e94cf0f6f11d9a607f8c0a546223a058209872fd
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sun Jan 13 14:56:49 2019 +1100
+
+    Add buy/sell page which loads the current price of the stock
+
+commit c3ffcc235bc8355db95dd83462a7129de9da8304
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sun Jan 13 14:04:45 2019 +1100
+
+    Search: filter out stocks that aren't traded in USD
+
+commit 90e25517a60fb6071f1c068fa97413ebc0c7227e
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sun Jan 13 13:59:54 2019 +1100
+
+    Prettier: enable singleQuote
+
+commit 577ddb4c5d209b9b89033ecacbfcce8539b2080e
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sun Jan 13 09:55:14 2019 +1100
+
+    Add a page to search for new stocks to buy
+
+commit cbcfb502356b36002df0a458a66f037b1b77e753
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sun Jan 13 09:13:36 2019 +1100
+
+    Fill out dashboard component with buttons to buy/sell stock and deposit/withdraw cash
+
+commit d83912a6c41ce82afb39f3e504521a7d70324bb9
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sat Jan 12 22:39:58 2019 +1100
+
+    npm -> yarn
+
+commit f548af48945648299902267cc30b8b1fcc25d2c0
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sat Jan 12 22:22:53 2019 +1100
+
+    Add production build configuration
+
+commit c6704b4db3bdf27e3cd6cc2d6048a9ffc718c532
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sat Jan 12 22:07:10 2019 +1100
+
+    Add a selector to set the title
+
+commit c7373a8626457ba02fd654c15465d36d54aa43c0
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sat Jan 12 21:37:59 2019 +1100
+
+    Redirect to the login page on logout
+
+commit e5ba8907af6f2a3c13223810959c84408b2b1bc7
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sat Jan 12 21:27:41 2019 +1100
+
+    Set up emotion to add styles and use it to make a hot pink header bar
+
+commit e0c78cbffc42ecd9dfe157aaab9bdaad712dbf2f
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sat Jan 12 20:23:44 2019 +1100
+
+    Add a header bar
+
+commit eba15a8d91b8edfefee4e51c7639a78912a9aa5f
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sat Jan 12 10:55:14 2019 +1100
+
+    Add dashboard component, get react-hot-loader working
+
+commit 45b0257aa575c55d85d1ec2aa813705c75ec73cc
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sat Jan 12 10:35:19 2019 +1100
+
+    Ensure that the login page with a redirectTo query param always redirects
+
+commit 843863c5f5a60111609f0aa318b1615b1f9f2c99
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sat Jan 12 10:14:46 2019 +1100
+
+    Add logout button on login pgae when logged in, read cookies on the server
+
+commit 6601d8cf43af663b8ee91f9a480201d926060a3c
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sat Jan 12 09:33:21 2019 +1100
+
+    Implement login component, which successfully saves the API key
+
+commit d04c2c453a1785ea079ea2a45f72e113ce411117
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sat Jan 12 08:47:48 2019 +1100
+
+    Implement storing the login session token (which happens to be the AlphaVantage API key) in a cookie
+
+commit e0e58e67357f5873b6706c57b8470c8a2d6a3a44
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Sat Jan 12 00:15:09 2019 +1100
+
+    Do some processing to get rid of the strangely named fields
+
+commit 30f22cd051140af67b2b06dc0d63d0380d74c263
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Fri Jan 11 23:52:12 2019 +1100
+
+    Call the AlphaVantage search endpoint based on a URL query parameter and populating the redux state accordingly
+
+commit 4b570035a2dcf0936ea3baba1d79db26143a51b9
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Fri Jan 11 22:51:01 2019 +1100
+
+    Change to named exports
+
+commit 6d9190e4c637327c7b784eb31f9602e2a863efe2
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Tue Jan 8 09:28:05 2019 +1100
+
+    Hello world (with universal rendering)
+
+commit c5c482e59ab7ade018ebf6539db2f41c45935917
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Tue Jan 8 08:35:57 2019 +1100
+
+    Set up app build, to the extend that webpack runs without error
+
+commit 6e12546993c39bcaeeb603658a8bd156131ad5e9
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Tue Jan 8 08:18:50 2019 +1100
+
+    Set up lerna and create sub packages for the app and the backend
+
+commit 49bb8518cefbf73dab1800520db27a3f8357e39d
+Author: Daniel Playfair Cal <daniel.playfair.cal@gmail.com>
+Date:   Tue Jan 8 08:11:19 2019 +1100
+
+    Initialise new project
