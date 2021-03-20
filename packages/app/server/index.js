@@ -8,7 +8,7 @@ import clientConfig from '../webpack/client.dev';
 // eslint-disable-next-line import/no-unresolved
 import serverConfig from '../webpack/server.dev';
 
-const publicPath = clientConfig.output.publicPath;
+const { publicPath } = clientConfig.output;
 const outputPath = clientConfig.output.path;
 const app = express();
 

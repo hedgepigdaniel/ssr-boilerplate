@@ -23,7 +23,7 @@ module.exports = {
       },
     },
     {
-      files: "./packages/app/**/*",
+      files: './packages/app/**/*',
       env: {
         'shared-node-browser': true,
       },
