@@ -9,11 +9,12 @@ module.exports = (api) => {
         },
       ],
       '@babel/preset-react',
+      '@babel/preset-typescript',
     ],
     plugins: [
+      '@emotion/babel-plugin',
       '@babel/plugin-proposal-class-properties',
       '@babel/plugin-proposal-object-rest-spread',
-      'babel-plugin-emotion',
     ],
   };
 };

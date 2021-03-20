@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
 import { Fragment } from 'react';
+import { jsx } from '@emotion/react';
 import { redirect } from '@respond-framework/rudy';
 import { FIND_STOCKS } from '../../actions';
 import { ConnectedStockSearchResult } from './StockResult.js/connector';

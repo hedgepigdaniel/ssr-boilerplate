@@ -1,6 +1,6 @@
-# TRADL
+# SSR boilerplate
 
-TRADL is a web app to find and trade stocks
+This is a starting point to make an SSR webapp.
 
 ## Usage
 
@@ -20,7 +20,3 @@ cd packages/app
 yarn run build # Compile for production
 yarn run serve # Start the server
 ```
-
-## Development report
-
-See [REPORT.md](./REPORT.md)

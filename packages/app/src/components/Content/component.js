@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { jsx, css } from '@emotion/react';
 import { LOG_IN, DASHBOARD, FIND_STOCKS, TRADE_STOCK } from '../../actions';
 import { ConnectedLogin } from '../Login/connector';
 import { ConnectedDashboard } from '../Dashboard/connector';
@@ -32,6 +32,7 @@ export const Content = (props) => (
       grid-area: content;
     `}
   >
+    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
     <ContentSwitch {...props} />
   </div>
 );

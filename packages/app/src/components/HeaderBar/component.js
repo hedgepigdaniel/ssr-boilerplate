@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
 import { Fragment } from 'react';
+import { jsx, css } from '@emotion/react';
 import { LOG_OUT } from '../../actions';
 import { MIN_PC_WIDTH_REM } from '../../responsive';
 

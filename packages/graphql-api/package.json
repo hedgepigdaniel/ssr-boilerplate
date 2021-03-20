@@ -1,8 +1,0 @@
-{
-  "name": "@qwilr-danielpc/graphql-api",
-  "version": "0.0.1",
-  "description": "GraphQL API for a user to manage a fake stock portfolio and cash balance",
-  "repository": "https://github.com/hedgepigdaniel/trading-app",
-  "author": "Daniel Playfair Cal <daniel.playfair.cal@gmail.com>",
-  "private": true
-}

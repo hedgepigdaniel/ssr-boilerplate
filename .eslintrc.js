@@ -1,11 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  extends: [
-    'eslint-config-airbnb',
-    'plugin:prettier/recommended',
-    'prettier/react',
-  ],
+  extends: ['eslint-config-airbnb', 'plugin:prettier/recommended', 'prettier'],
   parser: 'babel-eslint',
   settings: {
     'import/resolver': {
@@ -31,5 +27,6 @@ module.exports = {
     ],
     'import/no-default-export': 2,
     'import/prefer-default-export': 0,
+    'react/jsx-fragments': [2, 'element'],
   },
 };

@@ -1,7 +1,8 @@
 // Copied from https://github.com/respond-framework/rudy/blob/22d0a9d8d28e1e74aaf04bb48b5e0f65a609cf81/packages/boilerplate/server/serveProd.js
 
 import 'source-map-support/register';
-import '@babel/polyfill';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import { resolve } from 'path';
 import express from 'express';
 import nocache from 'nocache';

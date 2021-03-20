@@ -5,25 +5,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { HotApp } from './components/App/hot';
-import { configureStore } from './configureStore';
+import { loadableReady } from '@loadable/component';
+import { App } from './components/App/component';
+import { configureStore } from './configureStore.browser';
 
 const { store, firstRoute } = configureStore(window.REDUX_STATE);
 
-const root = document.getElementById('root');
-
-const render = () =>
+const render = () => {
+  const root = document.getElementById('root');
   ReactDOM.hydrate(
     <Provider store={store}>
-      <HotApp />
+      <App />
     </Provider>,
     root,
   );
+};
 
-store.dispatch(firstRoute()).then(() => {
-  render();
-});
-
-if (module.hot) {
-  module.hot.accept('./components/App/hot', render);
-}
+store.dispatch(firstRoute()).then(loadableReady(render));

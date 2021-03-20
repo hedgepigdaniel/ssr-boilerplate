@@ -1,11 +1,17 @@
-node_modules/
+# Ignore everything, but still traverse sub directories
+*
+!*/
 
-*.log
-*.lock
-*.ico
-dist/*
+
+# Don't ignore:
+!*.js
+!**/*.jsx
+!**/*.ts
+!**/*.tsx
+!**/*.json
+!**/*.md
+
+
+# Ignore:
 **/buildClient/**
 **/buildServer/**
-
-.gitignore
-.prettierignore

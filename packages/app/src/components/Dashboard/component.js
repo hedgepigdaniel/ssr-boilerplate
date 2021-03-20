@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
 import { Fragment } from 'react';
+import { jsx } from '@emotion/react';
 import {
   DEPOSIT_CASH,
   WITHDRAW_CASH,

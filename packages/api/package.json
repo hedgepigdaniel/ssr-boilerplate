@@ -1,0 +1,8 @@
+{
+  "name": "@hedgepigdaniel/boilerplate-api",
+  "version": "0.0.1",
+  "description": "Empty starting point for an API to support the web app",
+  "repository": "https://github.com/hedgepigdaniel/ssr-boilerplate",
+  "author": "Daniel Playfair Cal <daniel.playfair.cal@gmail.com>",
+  "private": true
+}

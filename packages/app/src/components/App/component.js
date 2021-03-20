@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { jsx, css } from '@emotion/react';
 import { ConnectedHeaderBar } from '../HeaderBar/connector';
 import {
   MIN_PC_WIDTH_REM,
