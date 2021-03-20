@@ -32,6 +32,7 @@ app.use(
   webpackDevMiddleware(multiCompiler, {
     publicPath,
     serverSideRender: true,
+    stats: 'minimal',
   }),
 );
 app.use(webpackHotMiddleware(clientCompiler));
@@ -40,7 +41,6 @@ app.use(webpackHotMiddleware(clientCompiler));
 app.use(
   webpackHotServerMiddleware(multiCompiler, {
     serverRendererOptions: { outputPath },
-    chunkName: 'h',
   }),
 );
 

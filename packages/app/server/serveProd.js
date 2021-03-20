@@ -9,9 +9,9 @@ import nocache from 'nocache';
 
 import favicon from 'serve-favicon';
 // eslint-disable-next-line import/no-unresolved
-import clientStats from '../buildClient/stats.json';
-// eslint-disable-next-line import/no-unresolved,import/extensions
-import serverRender from '../buildServer/h';
+import clientStats from '../buildClient/stats';
+// eslint-disable-next-line import/no-unresolved
+import serverRender from '../buildServer/main';
 import makeConfig from './webpack.config.babel';
 
 // ASSUMPTION: the compiled version of this file is one directory under the boilerplate root

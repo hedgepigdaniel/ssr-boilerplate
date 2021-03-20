@@ -1,13 +1,18 @@
 const path = require('path');
 
 module.exports = (api) => {
-  const webpackClient = api.env('webpack-client');
-  const webpackServer = api.env('webpack-server');
+  const webpack = api.env(
+    (envName) => envName.split('-').indexOf('webpack') !== -1,
+  );
+  const client = api.env(
+    (envName) => envName.split('-').indexOf('client') !== -1,
+  );
+  const dev = api.env((envName) => envName.split('-').indexOf('dev') !== -1);
   return {
     extends: path.resolve(__dirname, '../../babel.config.js'),
     plugins: [
-      (webpackClient || webpackServer) && '@babel/plugin-syntax-dynamic-import',
-      webpackClient && ['react-refresh/babel', { skipEnvCheck: true }],
+      webpack && '@babel/plugin-syntax-dynamic-import',
+      webpack && client && dev[('react-refresh/babel', { skipEnvCheck: true })],
     ].filter(Boolean),
   };
 };

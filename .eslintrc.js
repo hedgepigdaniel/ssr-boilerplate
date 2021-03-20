@@ -1,16 +1,17 @@
-const path = require('path');
-
 module.exports = {
-  extends: ['eslint-config-airbnb', 'plugin:prettier/recommended', 'prettier'],
+  extends: [
+    'eslint-config-airbnb',
+    'plugin:prettier/recommended',
+    'prettier',
+    'plugin:import/typescript',
+  ],
   parser: 'babel-eslint',
-  settings: {
-    'import/resolver': {
-      lerna: {
-        packages: path.resolve(__dirname, './packages'),
-      },
-    },
-  },
   overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      parser: '@typescript-eslint/parser',
+      extends: ['plugin:@typescript-eslint/recommended'],
+    },
     {
       files: ['./*'],
       rules: {
@@ -26,13 +27,6 @@ module.exports = {
       files: './packages/app/**/*',
       env: {
         'shared-node-browser': true,
-      },
-      settings: {
-        'import/resolver': {
-          node: {
-            extensions: ['.browser.js', '.server.js', '.js', '.css'],
-          },
-        },
       },
       rules: {
         'react/jsx-filename-extension': 0,
@@ -61,6 +55,7 @@ module.exports = {
     'no-underscore-dangle': 0,
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'no-nested-ternary': 0,
+    'import/extensions': [2, { ts: 'never', tsx: 'never' }],
     'import/no-default-export': 2,
     'import/prefer-default-export': 0,
     'react/jsx-fragments': [2, 'element'],
