@@ -5,13 +5,14 @@
 
 # Don't ignore:
 !*.js
-!**/*.jsx
-!**/*.ts
-!**/*.tsx
-!**/*.json
-!**/*.md
+!*.jsx
+!*.ts
+!*.tsx
+!*.json
+!*.md
 
 
 # Ignore:
 **/buildClient/**
 **/buildServer/**
+**/dist/**

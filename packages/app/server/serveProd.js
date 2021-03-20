@@ -8,8 +8,10 @@ import express from 'express';
 import nocache from 'nocache';
 
 import favicon from 'serve-favicon';
-import clientStats from '../buildClient/stats.json'; // eslint-disable-line import/no-unresolved
-import serverRender from '../buildServer/h'; // eslint-disable-line import/no-unresolved
+// eslint-disable-next-line import/no-unresolved
+import clientStats from '../buildClient/stats.json';
+// eslint-disable-next-line import/no-unresolved,import/extensions
+import serverRender from '../buildServer/h';
 import makeConfig from './webpack.config.babel';
 
 // ASSUMPTION: the compiled version of this file is one directory under the boilerplate root

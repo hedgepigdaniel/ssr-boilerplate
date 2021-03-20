@@ -7,13 +7,20 @@
   "private": true,
   "scripts": {
     "prettify": "prettier --write '**/*'",
+    "lint": "eslint --cache --cache-location .cache/.eslintcache --max-warnings 0 --report-unused-disable-directives",
     "w:babel-node": "cd $INIT_CWD && babel-node",
-    "w:webpack": "cd $INIT_CWD && webpack"
+    "w:webpack": "cd $INIT_CWD && webpack",
+    "postinstall": "husky install"
   },
   "workspaces": {
     "packages": [
       "packages/*"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "devDependencies": {
     "@babel/cli": "^7.13.10",
@@ -40,7 +47,10 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-webpack-plugin": "^2.5.2",
+    "husky": "^5.1.3",
     "lerna": "^4.0.0",
+    "lint-staged": "^10.5.4",
+    "micromatch": "^4.0.2",
     "prettier": "^2.2.1",
     "react-refresh": "^0.9.0",
     "source-map-support": "^0.5.19",

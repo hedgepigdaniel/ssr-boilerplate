@@ -7,7 +7,7 @@ module.exports = (api) => {
     extends: path.resolve(__dirname, '../../babel.config.js'),
     plugins: [
       (webpackClient || webpackServer) && '@babel/plugin-syntax-dynamic-import',
-      webpackClient && ['react-refresh/babel', {skipEnvCheck: true}],
+      webpackClient && ['react-refresh/babel', { skipEnvCheck: true }],
     ].filter(Boolean),
   };
 };

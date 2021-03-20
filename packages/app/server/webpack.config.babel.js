@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { resolve } from 'path';
 import webpack from 'webpack';
 import ExtractCssChunks from 'extract-css-chunks-webpack-plugin';
@@ -6,9 +5,11 @@ import WriteFilePlugin from 'write-file-webpack-plugin'; // here so you can see 
 import StatsPlugin from 'stats-webpack-plugin';
 import EsLintPlugin from 'eslint-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import LoadablePlugin from '@loadable/webpack-plugin';
 
 const res = (p) => resolve(__dirname, p);
 
+// eslint-disable-next-line import/no-default-export
 export default (env) => {
   const isServer = JSON.parse(env.server) || undefined;
   const isClient = !isServer || undefined;
@@ -98,6 +99,7 @@ export default (env) => {
         extensions: ['js', 'jsx', 'ts', 'tsx'],
       }),
       isClient && new ExtractCssChunks(),
+      isClient && new LoadablePlugin({ outputAsset: false }),
       isServer &&
         new webpack.optimize.LimitChunkCountPlugin({
           maxChunks: 1,
