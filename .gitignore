@@ -15,3 +15,5 @@ buildClient/
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+*.tsbuildinfo

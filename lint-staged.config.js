@@ -9,5 +9,5 @@ module.exports = {
         ? `yarn run lint --fix '${file}'`
         : `prettier --write '${file}'`,
     ),
-  '**/*.ts?(x)': () => 'tsc -b config/tsconfig.json',
+  '**/*.ts?(x)': () => 'tsc -b',
 };

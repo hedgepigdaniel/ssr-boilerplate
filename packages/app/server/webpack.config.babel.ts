@@ -1,16 +1,17 @@
 import { resolve } from 'path';
-import webpack from 'webpack';
+import webpack, { Configuration, HotModuleReplacementPlugin } from 'webpack';
 import ExtractCssChunks from 'extract-css-chunks-webpack-plugin';
 import WriteFilePlugin from 'write-file-webpack-plugin'; // here so you can see what chunks are built
-import StatsPlugin from 'stats-webpack-plugin';
+import { StatsWriterPlugin } from 'webpack-stats-plugin';
 import EsLintPlugin from 'eslint-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import LoadablePlugin from '@loadable/webpack-plugin';
+import { isTruthy } from './helpers';
 
-const res = (p) => resolve(__dirname, p);
+const res = (p: string) => resolve(__dirname, p);
 
 // eslint-disable-next-line import/no-default-export
-export default (env) => {
+export default (env: { server: string }): Configuration => {
   const isServer = JSON.parse(env.server) || undefined;
   const isClient = !isServer || undefined;
   const isDev = process.env.NODE_ENV === 'development' || undefined;
@@ -18,7 +19,7 @@ export default (env) => {
   return {
     name: isServer ? 'server' : 'client',
     target: isServer ? 'node' : 'web',
-    mode: process.env.NODE_ENV,
+    mode: isDev ? 'development' : 'production',
     devtool: 'eval-source-map',
     entry: {
       [isServer ? 'h' : 'main']: [
@@ -29,7 +30,7 @@ export default (env) => {
         isClient && 'core-js/stable',
         isClient && 'regenerator-runtime/runtime',
         res(isServer ? '../src/render.server.js' : '../src/render.browser.js'),
-      ].filter(Boolean),
+      ].filter(isTruthy),
     },
     output: {
       filename: '[name].js',
@@ -63,7 +64,7 @@ export default (env) => {
           test: /\.css$/,
           exclude: /node_modules/,
           use: [
-            isClient && ExtractCssChunks.loader,
+            isClient ? ExtractCssChunks.loader : null,
             {
               loader: isServer ? 'css-loader/locals' : 'css-loader',
               options: {
@@ -71,7 +72,7 @@ export default (env) => {
                 localIdentName: '[name]__[local]--[hash:base64:5]',
               },
             },
-          ].filter(Boolean),
+          ].filter(isTruthy),
         },
       ],
     },
@@ -104,10 +105,9 @@ export default (env) => {
         new webpack.optimize.LimitChunkCountPlugin({
           maxChunks: 1,
         }),
-      isClient && isDev && new webpack.HotModuleReplacementPlugin(),
+      isClient && isDev && new HotModuleReplacementPlugin(),
       isClient && isDev && new ReactRefreshWebpackPlugin(),
-      isClient && isProd && new StatsPlugin('stats.json'),
-      isClient && isProd && new webpack.HashedModuleIdsPlugin(), // not needed for strategy to work (just good practice)
+      isClient && isProd && new StatsWriterPlugin(),
       new WriteFilePlugin(),
     ].filter(Boolean),
   };
