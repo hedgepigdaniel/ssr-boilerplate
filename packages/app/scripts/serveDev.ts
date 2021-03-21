@@ -1,34 +1,30 @@
-// Copied from https://github.com/respond-framework/rudy/blob/22d0a9d8d28e1e74aaf04bb48b5e0f65a609cf81/packages/boilerplate/server/serveDev.js
-
 import 'source-map-support/register';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import express from 'express';
 import nocache from 'nocache';
 import favicon from 'serve-favicon';
-import webpack from 'webpack';
+import webpack, { Compiler } from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackHotServerMiddleware from 'webpack-hot-server-middleware';
-import makeConfig from './webpack.config.babel';
+import { makeConfig } from './webpack.config.babel';
 
-const clientConfig = makeConfig({ server: false });
-const serverConfig = makeConfig({ server: true });
+const clientConfig = makeConfig({ isServer: false });
+const serverConfig = makeConfig({ isServer: true });
 
-const { publicPath, outputPath } = clientConfig.output;
+const { publicPath, path: outputPath } = clientConfig.output;
 
 const app = express();
 
 app.use(favicon('./public/favicon.ico'));
 app.use(nocache());
 
-// UNIVERSAL HMR + STATS HANDLING GOODNESS:
-
 const multiCompiler = webpack([clientConfig, serverConfig]);
 const clientCompiler = multiCompiler.compilers[0];
 
 app.use(
-  webpackDevMiddleware(multiCompiler, {
+  webpackDevMiddleware((multiCompiler as unknown) as Compiler, {
     publicPath,
     serverSideRender: true,
     stats: 'minimal',

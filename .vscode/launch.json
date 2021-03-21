@@ -7,7 +7,7 @@
       "request": "launch",
       "cwd": "${workspaceFolder}/examples/boilerplate",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["buildServer/serveDev.js"],
+      "runtimeArgs": ["buildServer/serveDev.ts"],
       "port": 9229,
       "env": {
         "NODE_OPTIONS": "--inspect",

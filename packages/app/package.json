@@ -6,7 +6,7 @@
   "author": "Daniel Playfair Cal <daniel.playfair.cal@gmail.com>",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=development yarn run w:babel-node -x .js,.jsx,.ts,.tsx scripts/serveDev.js",
+    "start": "NODE_ENV=development yarn run w:babel-node -x .js,.jsx,.ts,.tsx scripts/serveDev.ts",
     "start-prod": "yarn run build && yarn run serve-prod",
     "serve-prod": "yarn node dist/scripts/serveProd.js",
     "build": "yarn run build-scripts && yarn run build-client && yarn run build-server",
@@ -23,7 +23,9 @@
     "@loadable/webpack-plugin": "^5.14.2",
     "@respond-framework/rudy": "^0.1.1-test.9",
     "@respond-framework/types": "^0.1.1-test.4",
+    "@types/express": "^4.17.11",
     "@types/loadable__webpack-plugin": "^5.7.1",
+    "@types/serve-favicon": "^2.5.2",
     "@types/webpack-stats-plugin": "^0.3.0",
     "axios": "^0.21.1",
     "core-js": "^3.9.1",

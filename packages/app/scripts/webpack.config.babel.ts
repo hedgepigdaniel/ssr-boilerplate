@@ -7,12 +7,13 @@ import { StatsWriterPlugin } from 'webpack-stats-plugin';
 import EsLintPlugin from 'eslint-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import LoadablePlugin from '@loadable/webpack-plugin';
-import { isTruthy } from './helpers';
-import { resolveFromCwd } from './helpers';
+import { isTruthy, resolveFromCwd } from './helpers';
 
-// eslint-disable-next-line import/no-default-export
-export default (env: { server: string }): Configuration => {
-  const isServer = Boolean(JSON.parse(env.server));
+export const makeConfig = ({
+  isServer,
+}: {
+  isServer: boolean;
+}): Configuration & { output: { publicPath: string; path: string } } => {
   const isClient = !isServer;
   const isDev = process.env.NODE_ENV === 'development';
   const isProd = !isDev;
@@ -102,4 +103,10 @@ export default (env: { server: string }): Configuration => {
         }) as unknown) as WebpackPluginInstance),
     ].filter(isTruthy),
   };
+};
+
+// eslint-disable-next-line import/no-default-export
+export default (env: { [key: string]: string }): Configuration => {
+  const isServer = Boolean(JSON.parse(env.server));
+  return makeConfig({ isServer });
 };

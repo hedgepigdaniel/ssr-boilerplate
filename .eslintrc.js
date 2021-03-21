@@ -34,7 +34,7 @@ module.exports = {
       },
     },
     {
-      files: ['./packages/app/server/*', './packages/app/server/serveDev.js'],
+      files: ['./packages/app/scripts/*'],
       rules: {
         'import/no-extraneous-dependencies': [
           2,

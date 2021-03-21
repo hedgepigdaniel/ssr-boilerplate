@@ -5,4 +5,4 @@ export const isTruthy = <Intended>(
   thing: Intended | Falsy,
 ): thing is Intended => Boolean(thing);
 
-export const resolveFromCwd = (p: string) => resolve(process.cwd(), p);
+export const resolveFromCwd = (p: string): string => resolve(process.cwd(), p);
