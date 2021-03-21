@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx, css } from '@emotion/react';
+import { css } from '@emotion/react';
 import { LOG_IN, DASHBOARD, FIND_STOCKS, TRADE_STOCK } from '../../actions';
 import { ConnectedLogin } from '../Login/connector';
 import { ConnectedDashboard } from '../Dashboard/connector';

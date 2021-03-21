@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { Fragment } from 'react';
-import { jsx, css } from '@emotion/react';
+import { css } from '@emotion/react';
 import { LOG_OUT } from '../../actions';
 import { MIN_PC_WIDTH_REM } from '../../responsive';
 
@@ -19,7 +17,7 @@ export const HeaderBar = ({
   backgroundStyle,
   contentStyle,
 }) => (
-  <Fragment>
+  <>
     <div
       css={css`
         ${backgroundStyle};
@@ -79,5 +77,5 @@ export const HeaderBar = ({
         </span>
       )}
     </header>
-  </Fragment>
+  </>
 );

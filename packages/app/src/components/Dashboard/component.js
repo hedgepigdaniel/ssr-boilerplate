@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { Fragment } from 'react';
-import { jsx } from '@emotion/react';
 import {
   DEPOSIT_CASH,
   WITHDRAW_CASH,
@@ -9,7 +6,7 @@ import {
 } from '../../actions';
 
 export const Dashboard = ({ dispatch, holdings = [] }) => (
-  <Fragment>
+  <>
     <h1>Dashboard</h1>
     <div>
       <h2>Cash</h2>
@@ -83,5 +80,5 @@ export const Dashboard = ({ dispatch, holdings = [] }) => (
         ))}
       </ul>
     </div>
-  </Fragment>
+  </>
 );

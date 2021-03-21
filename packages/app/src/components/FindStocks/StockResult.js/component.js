@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 import { TRADE_STOCK } from '../../../actions';
 
 export const StockSearchResult = ({ stock, dispatch }) => (

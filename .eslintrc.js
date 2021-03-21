@@ -58,6 +58,6 @@ module.exports = {
     'import/extensions': [2, { ts: 'never', tsx: 'never' }],
     'import/no-default-export': 2,
     'import/prefer-default-export': 0,
-    'react/jsx-fragments': [2, 'element'],
+    'react/react-in-jsx-scope': 0,
   },
 };
