@@ -69,7 +69,8 @@ export const configureStore = (
   const rootReducer = combineReducers(allReducers);
   const middlewares = applyMiddleware(ReduxThunk, rudyReduxMiddleware);
   const enhancer = composeEnhancers(middlewares);
-  const store = enhancer(createStore)(rootReducer, preloadedState);
+  const storeCreator = enhancer(createStore);
+  const store = storeCreator(rootReducer, preloadedState);
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {

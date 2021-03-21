@@ -55,11 +55,7 @@ export const createRouter: <State, Action extends ReduxAction>(
   options: CreateRouterOptions<State>,
   middlewares: Middleware[],
 ) => {
-  middleware: ReduxMiddleware<
-    (action: Action) => Promise<void>,
-    State & { location: LocationState },
-    (action: Action) => Promise<void>
-  >;
+  middleware: ReduxMiddleware<(action: Action) => Promise<void>, State>;
   reducer: Reducer<LocationState, Action>;
   firstRoute: () => Action;
 };
