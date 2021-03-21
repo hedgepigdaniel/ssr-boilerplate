@@ -46,15 +46,15 @@ export const configureStore = (
     pathlessRoute('thunk'),
     transformAction, // pipeline starts here
     call('beforeLeave', { prev: true }),
-    call('beforeEnter'),
+    call('beforeEnter', { runOnServer: true }),
     enter,
     changePageTitle({
       title: selectTitle,
     }),
     call('onLeave', { prev: true }),
-    call('onEnter'),
-    call('thunk', { cache: true }),
-    call('onComplete'),
+    call('onEnter', { runOnHydrate: true }),
+    call('thunk', { cache: true, runOnServer: true }),
+    call('onComplete', { runOnServer: true }),
   ];
   const {
     reducer: rudyReducer,

@@ -4,21 +4,26 @@ import {
   Reducer,
   Action as ReduxAction,
 } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
 
 type LocationAction = {
   type: string;
 };
 
-export type RouteThunk = () => void;
+export type RouteThunk<State, Action extends ReduxAction> = (api: {
+  dispatch: ThunkDispatch<State, undefined, Action>;
+  getState: () => State;
+}) => Promise<void | boolean | void> | boolean | void;
 
-export type RouteConfig = {
+export type RouteConfig<State, Action extends ReduxAction> = {
   path?: string;
-  onEnter?: RouteThunk;
-  onLeave?: RouteThunk;
+  beforeEnter?: RouteThunk<State, Action>;
+  onEnter?: RouteThunk<State, Action>;
+  onLeave?: RouteThunk<State, Action>;
 };
 
-export type RoutesMap<Action extends ReduxAction> = Partial<
-  { [key in Action['type']]: RouteConfig }
+export type RoutesMap<State, Action extends ReduxAction> = Partial<
+  { [key in Action['type']]: RouteConfig<State, Action> }
 >;
 
 export const doesRedirect: <A extends LocationAction>(
@@ -38,7 +43,12 @@ export const pathlessRoute: (name: string) => Middleware;
 export const transformAction: Middleware;
 export const call: (
   name: string,
-  options?: { prev?: boolean; cache?: boolean },
+  options?: {
+    prev?: boolean;
+    cache?: boolean;
+    runOnServer?: boolean;
+    runOnHydrate?: boolean;
+  },
 ) => Middleware;
 export const enter: Middleware;
 export const changePageTitle: <State>(options?: {
@@ -51,7 +61,7 @@ export type CreateRouterOptions<State> = {
 };
 
 export const createRouter: <State, Action extends ReduxAction>(
-  routes,
+  routes: RoutesMap<State, Action>,
   options: CreateRouterOptions<State>,
   middlewares: Middleware[],
 ) => {
