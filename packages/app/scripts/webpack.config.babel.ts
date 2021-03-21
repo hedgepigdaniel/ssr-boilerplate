@@ -29,7 +29,7 @@ export const makeConfig = ({
         'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=false&quiet=false&noInfo=false',
       isClient && 'core-js/stable',
       isClient && 'regenerator-runtime/runtime',
-      isServer ? './src/render.server.js' : './src/render.browser.js',
+      isServer ? './src/render-server.tsx' : './src/render-browser.tsx',
     ].filter(isTruthy),
     output: {
       filename: '[name].js',

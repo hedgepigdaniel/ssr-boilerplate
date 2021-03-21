@@ -13,7 +13,7 @@ module.exports = {
       extends: ['plugin:@typescript-eslint/recommended'],
     },
     {
-      files: ['./*'],
+      files: ['./*', './@types/**'],
       rules: {
         'import/no-extraneous-dependencies': [
           2,
