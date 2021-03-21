@@ -1,13 +1,10 @@
 {
   "files.exclude": {
-    "**/buildClient/**/*": true,
-    "**/buildServer/**/*": true
+    "packages/*/dist/**/*": true
   },
-
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
   "editor.detectIndentation": true,
-
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   }

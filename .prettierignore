@@ -13,6 +13,4 @@
 
 
 # Ignore:
-**/buildClient/**
-**/buildServer/**
 **/dist/**

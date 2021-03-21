@@ -10,6 +10,7 @@
     "lint": "eslint --cache --cache-location .cache/.eslintcache --max-warnings 0 --report-unused-disable-directives",
     "w:babel": "cd $INIT_CWD && babel",
     "w:babel-node": "cd $INIT_CWD && babel-node",
+    "w:rimraf": "cd $INIT_CWD && rimraf",
     "w:webpack": "cd $INIT_CWD && webpack",
     "postinstall": "husky install"
   },
@@ -55,6 +56,7 @@
     "micromatch": "^4.0.2",
     "prettier": "^2.2.1",
     "react-refresh": "^0.9.0",
+    "rimraf": "^3.0.2",
     "source-map-support": "^0.5.19",
     "typescript": "^4.2.3",
     "utility-types": "^3.10.0",

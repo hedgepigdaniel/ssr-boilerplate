@@ -3,7 +3,6 @@
 import 'source-map-support/register';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import path from 'path';
 import express from 'express';
 import nocache from 'nocache';
 import favicon from 'serve-favicon';
@@ -20,7 +19,7 @@ const { publicPath, outputPath } = clientConfig.output;
 
 const app = express();
 
-app.use(favicon(path.resolve(__dirname, '../public', 'favicon.ico')));
+app.use(favicon('./public/favicon.ico'));
 app.use(nocache());
 
 // UNIVERSAL HMR + STATS HANDLING GOODNESS:

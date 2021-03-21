@@ -1,4 +1,3 @@
-import { resolve } from 'path';
 import webpack, {
   Configuration,
   HotModuleReplacementPlugin,
@@ -9,8 +8,7 @@ import EsLintPlugin from 'eslint-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import LoadablePlugin from '@loadable/webpack-plugin';
 import { isTruthy } from './helpers';
-
-const res = (p: string) => resolve(__dirname, p);
+import { resolveFromCwd } from './helpers';
 
 // eslint-disable-next-line import/no-default-export
 export default (env: { server: string }): Configuration => {
@@ -30,12 +28,12 @@ export default (env: { server: string }): Configuration => {
         'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=false&quiet=false&noInfo=false',
       isClient && 'core-js/stable',
       isClient && 'regenerator-runtime/runtime',
-      res(isServer ? '../src/render.server.js' : '../src/render.browser.js'),
+      isServer ? './src/render.server.js' : './src/render.browser.js',
     ].filter(isTruthy),
     output: {
       filename: '[name].js',
       chunkFilename: '[name].js',
-      path: res(isServer ? '../buildServer' : '../buildClient'),
+      path: resolveFromCwd(isServer ? './dist/server' : './dist/client'),
       publicPath: '/static/',
       libraryTarget: isServer ? 'commonjs2' : undefined,
     },

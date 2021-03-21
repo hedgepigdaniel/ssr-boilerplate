@@ -10785,6 +10785,7 @@ resolve@^1.9.0:
     micromatch: ^4.0.2
     prettier: ^2.2.1
     react-refresh: ^0.9.0
+    rimraf: ^3.0.2
     source-map-support: ^0.5.19
     typescript: ^4.2.3
     utility-types: ^3.10.0

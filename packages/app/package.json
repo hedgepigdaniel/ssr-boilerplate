@@ -6,15 +6,14 @@
   "author": "Daniel Playfair Cal <daniel.playfair.cal@gmail.com>",
   "private": true,
   "scripts": {
-    "babel": "babel",
-    "start": "NODE_ENV=development yarn run w:babel-node -x .js,.jsx,.ts,.tsx server/serveDev.js",
-    "start:prod": "yarn run build && yarn run serve",
-    "serve": "yarn node buildServer/serveProd.js",
-    "build": "yarn run build:node && yarn run build:client && yarn run build:server",
-    "build:client": "yarn run w:webpack --config=buildServer/webpack.config.babel --progress --env server=false",
-    "build:server": "yarn run w:webpack --config=buildServer/webpack.config.babel --progress --env server=true",
-    "build:node": "yarn run w:babel -x .js,.jsx,.ts,.tsx --root-mode upward server/ -d buildServer/",
-    "clean": "rimraf buildClient buildServer"
+    "start": "NODE_ENV=development yarn run w:babel-node -x .js,.jsx,.ts,.tsx scripts/serveDev.js",
+    "start-prod": "yarn run build && yarn run serve-prod",
+    "serve-prod": "yarn node dist/scripts/serveProd.js",
+    "build": "yarn run build-scripts && yarn run build-client && yarn run build-server",
+    "build-client": "yarn run w:webpack --config=dist/scripts/webpack.config.babel --progress --env server=false",
+    "build-server": "yarn run w:webpack --config=dist/scripts/webpack.config.babel --progress --env server=true",
+    "build-scripts": "yarn run w:babel -s -x .js,.jsx,.ts,.tsx --root-mode upward scripts/ -d dist/scripts/",
+    "clean": "yarn run w:rimraf dist"
   },
   "dependencies": {
     "@emotion/react": "^11.1.5",

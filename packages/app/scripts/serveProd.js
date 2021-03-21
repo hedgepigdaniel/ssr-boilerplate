@@ -3,33 +3,25 @@
 import 'source-map-support/register';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import { resolve } from 'path';
 import express from 'express';
 import nocache from 'nocache';
 
 import favicon from 'serve-favicon';
-// eslint-disable-next-line import/no-unresolved
-import clientStats from '../buildClient/stats';
-// eslint-disable-next-line import/no-unresolved
-import serverRender from '../buildServer/main';
 import makeConfig from './webpack.config.babel';
-
-// ASSUMPTION: the compiled version of this file is one directory under the boilerplate root
-// (Otherwise importing '../buildXxxx' wouldn't work)
-
-const res = (...args) => resolve(__dirname, ...args);
+import { resolveFromCwd } from './helpers';
 
 const { path: outputPath, publicPath } = makeConfig({ server: false }).output;
 
 const app = express();
 
-app.use(favicon(res('../public', 'favicon.ico')));
+app.use(favicon('./public/favicon.ico'));
 app.use(nocache());
 
-// UNIVERSAL HMR + STATS HANDLING GOODNESS:
+const serverRender = require(resolveFromCwd('./dist/server/main.js'));
+const clientStats = require(resolveFromCwd('./dist/client/stats.json'));
 
 app.use(publicPath, express.static(outputPath));
-app.use(serverRender({ clientStats, outputPath }));
+app.use(serverRender.default({ clientStats, outputPath }));
 
 app.listen(3000, () => {
   // eslint-disable-next-line no-console
