@@ -1,10 +1,8 @@
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
 import { useSelector } from 'react-redux';
 import { Home } from '../Home/component';
 import { selectPage } from '../../selectors/page';
 
-const ContentSwitch = () => {
+export function Content(): JSX.Element {
   const page = useSelector(selectPage);
   switch (page) {
     case 'HOME': {
@@ -14,10 +12,4 @@ const ContentSwitch = () => {
       return <div>Error: unknown page</div>;
     }
   }
-};
-
-export const Content = styled(ContentSwitch)(
-  css`
-    grid-area: content;
-  `,
-);
+}
