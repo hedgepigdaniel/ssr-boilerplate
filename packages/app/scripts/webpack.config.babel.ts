@@ -1,4 +1,4 @@
-import webpack, {
+import {
   Configuration,
   HotModuleReplacementPlugin,
   WebpackPluginInstance,
@@ -73,7 +73,7 @@ export const makeConfig = ({
       runtimeChunk: isClient && {
         name: 'bootstrap',
       },
-      splitChunks: isClient && {
+      splitChunks: (isClient || isDev) && {
         maxSize: 50000,
         chunks: 'initial',
         cacheGroups: {
@@ -94,10 +94,6 @@ export const makeConfig = ({
       }),
       isClient &&
         (new LoadablePlugin({ outputAsset: false }) as WebpackPluginInstance),
-      isServer &&
-        new webpack.optimize.LimitChunkCountPlugin({
-          maxChunks: 1,
-        }),
       isClient && isDev && new HotModuleReplacementPlugin(),
       isClient && isDev && new ReactRefreshWebpackPlugin(),
       isClient &&
