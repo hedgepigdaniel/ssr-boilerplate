@@ -32,8 +32,8 @@ export const makeConfig = ({
       isServer ? './src/render-server.tsx' : './src/render-browser.tsx',
     ].filter(isTruthy),
     output: {
-      filename: '[name].js',
-      chunkFilename: '[name].js',
+      filename: `[name]${isClient && isProd ? '.[contenthash]' : ''}.js`,
+      chunkFilename: `[name]${isClient && isProd ? '.[contenthash]' : ''}.js`,
       path: resolveFromCwd(isServer ? './dist/server' : './dist/client'),
       publicPath: '/static/',
       libraryTarget: isServer ? 'commonjs2' : undefined,
@@ -71,6 +71,7 @@ export const makeConfig = ({
         name: 'bootstrap',
       },
       splitChunks: isClient && {
+        maxSize: 50000,
         chunks: 'initial',
         cacheGroups: {
           vendors: {

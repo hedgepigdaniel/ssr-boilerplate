@@ -10,9 +10,9 @@
     "start-prod": "yarn run build && yarn run serve-prod",
     "serve-prod": "yarn node dist/scripts/serveProd.js",
     "build": "yarn run build-scripts && yarn run build-client && yarn run build-server",
-    "build-client": "yarn run w:webpack --config=dist/scripts/webpack.config.babel --progress --env server=false",
-    "build-server": "yarn run w:webpack --config=dist/scripts/webpack.config.babel --progress --env server=true",
-    "build-scripts": "yarn run w:babel -s -x .js,.jsx,.ts,.tsx --root-mode upward scripts/ -d dist/scripts/",
+    "build-client": "yarn run w:rimraf dist/client && yarn run w:webpack --config=dist/scripts/webpack.config.babel --progress --env server=false",
+    "build-server": "yarn run w:rimraf dist/server && yarn run w:webpack --config=dist/scripts/webpack.config.babel --progress --env server=true",
+    "build-scripts": "yarn run w:rimraf dist/scripts && yarn run w:babel -s -x .js,.jsx,.ts,.tsx --root-mode upward scripts/ -d dist/scripts/",
     "clean": "yarn run w:rimraf dist"
   },
   "dependencies": {
