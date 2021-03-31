@@ -21,9 +21,12 @@ export const makeConfig = ({
     name: isServer ? 'server' : 'client',
     target: isServer ? 'node' : 'web',
     mode: isDev ? 'development' : 'production',
-    devtool: 'eval-source-map',
+    devtool: isProd
+      ? 'source-map'
+      : isClient
+      ? 'eval-source-map'
+      : 'inline-source-map',
     entry: [
-      isServer && 'source-map-support/register',
       isClient &&
         isDev &&
         'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=false&quiet=false&noInfo=false',
