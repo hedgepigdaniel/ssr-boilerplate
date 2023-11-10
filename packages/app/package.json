@@ -34,7 +34,7 @@
     "@types/serve-favicon": "^2.5.2",
     "@types/webpack-env": "^1.16.0",
     "@types/webpack-stats-plugin": "^0.3.0",
-    "axios": "^0.21.1",
+    "axios": "^1.6.0",
     "core-js": "^3.9.1",
     "express": "^4.17.1",
     "nocache": "^2.1.0",
